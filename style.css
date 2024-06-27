@@ -1,0 +1,266 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('blrgt-cafe-0007-hor-feat.avif') no-repeat center center/cover;
+    color: #fff;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 95%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 2em;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+nav h1 {
+    color: #fff;
+    font-size: 1.5em;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1em;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    transition: background 0.3s;
+}
+
+.nav-links li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+}
+
+.hero {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    z-index: 1;
+}
+
+.hero-content {
+    max-width: 600px;
+    z-index: 1;
+}
+
+.menu, .about, .contact, .owners {
+    padding: 4em 2em;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 3.5em;
+    margin-bottom: 2em;
+    margin-top: 5rem;
+    color: #000;
+}
+
+.menu-items {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+
+.menu-item {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+    margin-bottom: 2em;
+}
+
+.menu-item:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.menu-item h3 {
+    margin: 1em 0 0.5em; 
+    color: #333;
+}
+
+.menu-item p {
+    margin: 0.5em;
+    color: #555;
+}
+
+.about p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1em;
+    color: #555;
+}
+
+.owners-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+
+.owner {
+    position: relative;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out ;
+}
+
+.owner img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.3s;
+    z-index: 1;
+    bottom: 5rem;
+}
+
+.owner:hover{
+    transform: scale(1.1);
+}
+
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form button {
+    padding: 0.75em;
+    border: 1px solid #000;
+    border-radius: 4px;
+}
+
+.contact-form button {
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.contact-form button:hover {
+    background: #555;
+}
+
+footer {
+    text-align: center;
+    padding: 1em;
+    background: #333;
+    color: #fff;
+}
+
+.menu-item,
+.about p,
+.contact-form {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+.menu-item.in-view,
+.about p.in-view,
+.contact-form.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        text-align: center;
+    }
+
+    .nav-links li {
+        margin: 1em 0;
+    }
+
+    .nav-links li a {
+        padding: 1em 2em;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .burger {
+        display: flex;
+    }
+
+    .burger.toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .burger.toggle .line2 {
+        opacity: 0;
+    }
+
+    .burger.toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
